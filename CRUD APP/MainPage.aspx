@@ -83,6 +83,7 @@
         </div>
         <br />
         <asp:Button ID="btnInsert" runat="server" OnClick="btnInsert_Click" Text="Insert" />
+        &nbsp;<asp:Button ID="btnShowRec" runat="server" OnClick="btnShowRec_Click" Text="Show Records" />
         <br />
         <asp:GridView ID="GridView1" runat="server" Height="127px" Width="432px">
         </asp:GridView>
