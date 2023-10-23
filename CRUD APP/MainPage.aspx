@@ -44,6 +44,8 @@
                     <td class="auto-style5">Student ID</td>
                     <td class="auto-style2">
                         <asp:TextBox ID="txtBoxId" runat="server" Font-Size="Medium"></asp:TextBox>
+                        &nbsp;
+        <asp:Button ID="btnGetInfo" runat="server" OnClick="btnGetInfo_Click" Text="GET" />
                     </td>
                 </tr>
                 <tr>
@@ -83,7 +85,10 @@
         </div>
         <br />
         <asp:Button ID="btnInsert" runat="server" OnClick="btnInsert_Click" Text="Insert" />
-        &nbsp;<asp:Button ID="btnShowRec" runat="server" OnClick="btnShowRec_Click" Text="Show Records" />
+        &nbsp;<asp:Button ID="btnSelectRec" runat="server" OnClick="btnSelectRec_Click" Text="Select" />
+        &nbsp;<asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
+        &nbsp;<asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
+        &nbsp;<asp:Button ID="btnShowAll" runat="server" OnClick="btnShowAll_Click" Text="Show All" />
         <br />
         <asp:GridView ID="GridView1" runat="server" Height="127px" Width="432px">
         </asp:GridView>

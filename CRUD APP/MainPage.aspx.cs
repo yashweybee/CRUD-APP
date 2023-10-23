@@ -15,7 +15,10 @@ namespace CRUD_APP
         SqlConnection con = new SqlConnection("data source=.; database=Students; integrated security=SSPI");
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Load_Rec();
+            }
         }
 
         protected void btnInsert_Click(object sender, EventArgs e)
@@ -27,33 +30,123 @@ namespace CRUD_APP
                 SqlCommand cd = new SqlCommand(insertQuery, con);
                 con.Open();
                 cd.ExecuteNonQuery();
+                con.Close();
 
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-
-                //SqlDataReader red = cd.ExecuteReader();
-                //red.Read();
+                Load_Rec();
 
             }
             catch (Exception ex)
             {
                 Response.Write(ex.ToString());
             }
-            finally
+        }
+
+        public void Load_Rec()
+        {
+            try
             {
+                string selectQuery = "select * from stdDetails";
+                SqlCommand cm = new SqlCommand(selectQuery, con);
+                con.Open();
+                SqlDataAdapter ad = new SqlDataAdapter(cm);
+                DataTable tb = new DataTable();
+                ad.Fill(tb);
                 con.Close();
+                GridView1.DataSource = tb;
+                GridView1.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string updateQuery = "update stdDetails set StudentName = '" + txtBoxName.Text + "', City = '" + ddCity.Text + "'     , Age = '" + int.Parse(txtBoxAge.Text) + "', Contact = '" + int.Parse(txtBoxContact.Text) + "' where StudentId = '" + int.Parse(txtBoxId.Text) + "'";
+                SqlCommand cd = new SqlCommand(updateQuery, con);
+                con.Open();
+                cd.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Updated Successfully')", true);
+                Load_Rec();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
             }
 
         }
-
-        protected void btnShowRec_Click(object sender, EventArgs e)
+        protected void btnDelete_Click(object sender, EventArgs e)
         {
-            string selectQuery = "select * from stdDetails";
-            SqlCommand cm = new SqlCommand(selectQuery, con);
-            SqlDataAdapter ad = new SqlDataAdapter(cm);
-            DataTable tb = new DataTable();
-            ad.Fill(tb);
-            GridView1.DataSource = tb;
-            GridView1.DataBind();
+            try
+            {
+                string updateQuery = "delete stdDetails where StudentId = '" + int.Parse(txtBoxId.Text) + "'";
+                SqlCommand cd = new SqlCommand(updateQuery, con);
+                con.Open();
+                cd.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Deleted Successfully')", true);
+                Load_Rec();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+        }
+
+        protected void btnSelectRec_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectQuery = "select * from stdDetails where StudentId = '" + int.Parse(txtBoxId.Text) + "'";
+                SqlCommand cm = new SqlCommand(selectQuery, con);
+                con.Open();
+                SqlDataAdapter ad = new SqlDataAdapter(cm);
+                DataTable tb = new DataTable();
+                ad.Fill(tb);
+                con.Close();
+                GridView1.DataSource = tb;
+                GridView1.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+        }
+
+        protected void btnShowAll_Click(object sender, EventArgs e)
+        {
+            Load_Rec();
+        }
+
+        protected void btnGetInfo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectQuery = "select * from stdDetails where StudentId = '" + int.Parse(txtBoxId.Text) + "'";
+                SqlCommand cm = new SqlCommand(selectQuery, con);
+                con.Open();
+                SqlDataReader red = cm.ExecuteReader();
+                while (red.Read())
+                {
+                    txtBoxName.Text = red.GetValue(1).ToString();
+                    ddCity.Text = red.GetValue(2).ToString();
+                    txtBoxAge.Text = red.GetValue(3).ToString();
+                    txtBoxContact.Text = red.GetValue(4).ToString();
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
         }
     }
 }

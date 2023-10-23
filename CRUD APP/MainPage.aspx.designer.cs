@@ -33,6 +33,15 @@ namespace CRUD_APP
         protected global::System.Web.UI.WebControls.TextBox txtBoxId;
 
         /// <summary>
+        /// btnGetInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGetInfo;
+
+        /// <summary>
         /// txtBoxName control.
         /// </summary>
         /// <remarks>
@@ -78,13 +87,40 @@ namespace CRUD_APP
         protected global::System.Web.UI.WebControls.Button btnInsert;
 
         /// <summary>
-        /// btnShowRec control.
+        /// btnSelectRec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnShowRec;
+        protected global::System.Web.UI.WebControls.Button btnSelectRec;
+
+        /// <summary>
+        /// btnUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
+
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
+
+        /// <summary>
+        /// btnShowAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnShowAll;
 
         /// <summary>
         /// GridView1 control.
