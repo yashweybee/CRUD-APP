@@ -36,7 +36,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <strong>Student Management<br />
+            <strong style="background-color: #9999FF">Student Management<br />
             </strong>
             <table class="auto-style1">
                 <tr>
@@ -45,7 +45,7 @@
                     <td class="auto-style2">
                         <asp:TextBox ID="txtBoxId" runat="server" Font-Size="Medium"></asp:TextBox>
                         &nbsp;
-        <asp:Button ID="btnGetInfo" runat="server" OnClick="btnGetInfo_Click" Text="GET" />
+        <asp:Button ID="btnGetInfo" runat="server" OnClick="btnGetInfo_Click" Text="GET" BackColor="#0066FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" />
                     </td>
                 </tr>
                 <tr>
@@ -84,11 +84,11 @@
             </table>
         </div>
         <br />
-        <asp:Button ID="btnInsert" runat="server" OnClick="btnInsert_Click" Text="Insert" />
-        &nbsp;<asp:Button ID="btnSelectRec" runat="server" OnClick="btnSelectRec_Click" Text="Select" />
-        &nbsp;<asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
-        &nbsp;<asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
-        &nbsp;<asp:Button ID="btnShowAll" runat="server" OnClick="btnShowAll_Click" Text="Show All" />
+        <asp:Button ID="btnInsert" runat="server" OnClick="btnInsert_Click" Text="Insert" BackColor="#0066FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" />
+        &nbsp;<asp:Button ID="btnSelectRec" runat="server" OnClick="btnSelectRec_Click" Text="Select" BackColor="#0066FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" />
+        &nbsp;<asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" BackColor="#0066FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" />
+        &nbsp;<asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" OnClientClick="return confirm('are you sure to Delete?');" Text="Delete" BackColor="#0066FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" />
+        &nbsp;<asp:Button ID="btnShowAll" runat="server" OnClick="btnShowAll_Click" Text="Show All" BackColor="#0066FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" />
         <br />
         <asp:GridView ID="GridView1" runat="server" Height="127px" Width="432px">
         </asp:GridView>

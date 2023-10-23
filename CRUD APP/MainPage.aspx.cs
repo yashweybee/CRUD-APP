@@ -38,7 +38,7 @@ namespace CRUD_APP
             }
             catch (Exception ex)
             {
-                Response.Write(ex.ToString());
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Error!!')", true);
             }
         }
 
@@ -78,7 +78,7 @@ namespace CRUD_APP
             }
             catch (Exception ex)
             {
-                Response.Write(ex.ToString());
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Error!!')", true);
             }
 
         }
@@ -97,7 +97,7 @@ namespace CRUD_APP
             }
             catch (Exception ex)
             {
-                Response.Write(ex.ToString());
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Error!!')", true);
             }
         }
 
@@ -117,7 +117,7 @@ namespace CRUD_APP
             }
             catch (Exception ex)
             {
-                Response.Write(ex.ToString());
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Error!!')", true);
             }
         }
 
@@ -145,7 +145,7 @@ namespace CRUD_APP
             }
             catch (Exception ex)
             {
-                Response.Write(ex.ToString());
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Error!!')", true);
             }
         }
     }
